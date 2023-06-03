@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>QRCode</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+.footer {
+  position: footer;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #666;
+  color: white;
+  text-align: center;
+}
+</style>
+<style>
+body {
+  background-image:url(images/pngtree.jpg);
+  background-size: 105% 100%;
+   }
+</style>
+<meta charset="utf-8">
+</head><body text="#000000">
+<center><h1><i>Unique QR Code</i></h1></center>
+<div id="main">
+   <nav>
+   <br>
+   <img src="images/images.jpg" width="260" height="160">
+
+   <ul><li >
+<a href="https://www.google.co.in/?gws_rd=ssl"><img src="google.gif" height="50" width="auto" align="right"></a></br>
+     <li><a href="index.html">Home</a></li>
+     <li><a href="Features.html">Features</a></li>
+     <li><a href="About.html">About</a></li>
+     <li><a href="Help.html">Help</a></li>
+     <li><a href="Faq.html">FAQ</a></li>
+     <li><a href="Terms.html">Terms</a></li>
+     <li><a href="Privacy.html">Privacy</a></li>
+     </ul>  
+  </nav>
+</div>
+<br><br><br>
+<section>
+  <b><h1>QR code generator</h1></b><br><br>
+<center>
+  <p>Enter an URL or some text below and hit the Generate button</p>
+  <textarea name="textarea" cols="50" rows="10" autofocus id="textarea"></textarea>
+  
+  <br><br>
+  <label for="size">Size (px):</label>
+  <input id="size" type="number" value="150" min="50" max="500" step="50">	
+  <button onclick="genQRcode()">Generate</button>
+  <div id="content" style="display: content;">
+    <p><img id="qrcode" src="" /></p>
+    <label for="qrcode-url">QR Code URL:</label>
+    <input id="qrcode-url" type="text" onclick="this.select()">
+  </div>
+</section>
+<script>
+  var textarea = document.getElementById("textarea"),
+    content = document.getElementById("content");
+
+  function genQRcode() {
+    var data = encodeURIComponent(textarea.value),
+      size = document.getElementById("size").value,
+      chart = "http://chart.googleapis.com/chart?cht=qr&chs=" + size + "x" + size + "&choe=UTF-8&chld=L|0&chl=" + data;
+    if (data === "") {
+      alert("Please enter a valid data!");
+      textarea.focus();
+      content.style.display = "none";
+    } else {
+      content.style.display = "";
+      document.getElementById("qrcode").src = chart;
+      document.getElementById("qrcode-url").value = chart;
+    }
+  }
+
+  document.addEventListener("keydown", function(e) {
+    if (e.ctrlKey && e.keyCode == 13) {
+      genQRcode();
+    }
+  });
+</script><br>
+<div class="smallText">
+    <b><h3>Give a digital dimension to your material.</h3></b>
+    <ul>
+    <li>Connect your material and your physical locations to the digital world.</li>
+    <li>Communicate with your users through their smart phones.</li>
+    <li>Collect offline data.</li>
+    </ul>
+</div>
+<center><h3 style="color:white;">GET STARTED</h3>
+  <h3 style="color:black;"> <strong>Create your custom QR Code</strong></h3>
+</center>
+<center></center>
+<p><br>
+<b>Set QR Content</b></p>
+<p>Select a content type at the top for your QR code (URL, Text, Email...). After selecting your type you will see all available options. Enter all fields that should appear when scanning your QR code. Make sure everything you enter is correct because you can’t change the content once your QR code is printed.</p>
+<p><b>Generate QR Code</b></p>
+<p>Set the pixel resolution of your QR code with the slider. Click the "Create QR Code"-button to see your qr code preview. Please make sure your QR code is working correctly by scanning the preview with your QR Code scanner. Use a high resolution setting if you want to get a png code with print quality.</p>
+
+ 
+<div class="footer">
+          
+          <h3>About<span>UniqueQR</span></h3>
+
+				<p class="footer-links">
+					<a href="#" style="text-decoration: none">Home</a>
+					|
+					<a href="About.html" style="text-decoration: none">About</a>
+                    |
+                    <a href="Privacy.html" style="text-decoration: none"> Privacy</a>
+					| 
+					<a href="Terms.html" style="text-decoration: none">Terms of Services</a>
+				</p>
+
+<p class="footer-company-name">Copyright &copy; 2020 UniqueQR</p>
+
+<class="footer-center">
+<div>
+<p><a href="mailto:ravitejamuvvala23@gmail.com">support@uniqueQR</a>
+</p>
+</div>
+</div>
+</footer>
+</body>
+</html>
